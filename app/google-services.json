@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182713440543",
+    "project_id": "businesstrack-9faae",
+    "storage_bucket": "businesstrack-9faae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182713440543:android:40ebade7eb22d5964c782a",
+        "android_client_info": {
+          "package_name": "com.example.businesstrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYHxSoFwPbcBqPR-fKGGRSAOxsfU5owEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
