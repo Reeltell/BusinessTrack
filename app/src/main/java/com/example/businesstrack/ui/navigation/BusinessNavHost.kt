@@ -4,15 +4,26 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.businesstrack.ui.screen.*
+import com.example.businesstrack.ui.screen.AddTransaction.AddTransactionScreen
+import com.example.businesstrack.ui.screen.Auth.AuthenticationScreen
+import com.example.businesstrack.ui.screen.Home.HomeScreen
+import com.example.businesstrack.ui.screen.Registr.RegistrationScreen
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun BusinessNavHost() {
     val navController = rememberNavController()
+    val auth = Firebase.auth
+    val startDestination = if (auth.currentUser != null) {
+        Screen.Home.route
+    } else {
+        Screen.Registration.route
+    }
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Registration.route
+        startDestination = startDestination
     ) {
         composable(Screen.Registration.route) {
             RegistrationScreen(
@@ -46,17 +57,13 @@ fun BusinessNavHost() {
 
         composable(Screen.Home.route) {
             HomeScreen(
-                onAddTransactionClick = {
-                    navController.navigate(Screen.AddTransaction.route)
-                }
+                onAddTransactionClick = { navController.navigate(Screen.AddTransaction.route) }
             )
         }
 
         composable(Screen.AddTransaction.route) {
             AddTransactionScreen(
-                onTransactionAdded = {
-                    navController.popBackStack()
-                }
+                onTransactionAdded = { navController.popBackStack() }
             )
         }
     }

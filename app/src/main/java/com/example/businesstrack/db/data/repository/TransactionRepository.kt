@@ -1,5 +1,6 @@
 package com.example.businesstrack.db.data.repository
 
+import android.util.Log
 import com.example.businesstrack.db.domain.model.Transaction
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,8 +19,12 @@ class TransactionRepository @Inject constructor(
             .document(userId)
             .collection("transactions")
             .add(transaction)
-            .addOnSuccessListener { onResult(true) }
-            .addOnFailureListener { onResult(false) }
+            .addOnSuccessListener {
+                Log.d("TransactionRepository", "Транзакция успешно добавлена")
+                onResult(true) }
+            .addOnFailureListener { e ->
+                Log.e("TransactionRepository", "Ошибка при добавлении", e)
+                onResult(false) }
     }
 
     fun getTransactions(onResult: (List<Transaction>) -> Unit) {

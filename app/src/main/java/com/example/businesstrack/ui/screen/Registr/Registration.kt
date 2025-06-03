@@ -1,4 +1,4 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.Registr
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

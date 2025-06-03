@@ -1,4 +1,4 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.Auth
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions

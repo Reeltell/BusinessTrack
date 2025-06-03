@@ -1,5 +1,6 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.AddTransaction
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.businesstrack.db.data.repository.TransactionRepository
@@ -9,6 +10,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+
 
 @HiltViewModel
 class AddTransactionViewModel @Inject constructor(
@@ -55,6 +58,7 @@ class AddTransactionViewModel @Inject constructor(
 
         viewModelScope.launch {
             repository.addTransaction(transaction) { success ->
+                Log.d("AddTransactionViewModel", "Результат сохранения: $success")
                 if (success) onSuccess()
             }
         }

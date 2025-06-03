@@ -1,4 +1,4 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.AddTransaction
 
 data class AddTransactionUiState(
     val category: String = "",

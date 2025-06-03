@@ -1,20 +1,12 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.Auth
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-data class AuthenticationUiState(
-    val email: String = "",
-    val password: String = "",
-    val isFormValid: Boolean = false,
-    val error: String? = null
-)
 
 @HiltViewModel
 class AuthenticationViewModel @Inject constructor(

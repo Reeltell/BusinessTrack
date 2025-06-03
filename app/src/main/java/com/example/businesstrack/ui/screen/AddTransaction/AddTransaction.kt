@@ -1,4 +1,4 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.AddTransaction
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -19,6 +20,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 
+
 @Composable
 fun AddTransactionScreen(
     viewModel: AddTransactionViewModel = hiltViewModel(),
@@ -29,7 +31,8 @@ fun AddTransactionScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(16.dp)
+            .systemBarsPadding(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text("Новая транзакция", style = MaterialTheme.typography.headlineSmall)

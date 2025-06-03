@@ -1,4 +1,4 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.Registr
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

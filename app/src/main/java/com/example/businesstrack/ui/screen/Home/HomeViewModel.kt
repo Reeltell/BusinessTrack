@@ -1,4 +1,4 @@
-package com.example.businesstrack.ui.screen
+package com.example.businesstrack.ui.screen.Home
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
