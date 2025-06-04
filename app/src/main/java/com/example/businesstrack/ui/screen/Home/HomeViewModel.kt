@@ -33,4 +33,10 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
+
+    fun deleteTransaction(id: String, onResult: (Boolean) -> Unit) {
+        repository.deleteTransaction(id) { success ->
+            onResult(success)
+        }
+    }
 }

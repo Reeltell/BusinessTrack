@@ -1,5 +1,6 @@
 package com.example.businesstrack.ui.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,29 +17,59 @@ import androidx.compose.ui.unit.dp
 import com.example.businesstrack.db.domain.model.Transaction
 
 @Composable
-fun TransactionItem(transaction: Transaction) {
+fun TransactionItem(
+    transaction: Transaction,
+    onEdit: () -> Unit,
+    onDelete: () -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 6.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(transaction.category, style = MaterialTheme.typography.bodyLarge)
-                if (transaction.note.isNotBlank()) {
-                    Text(transaction.note, style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(transaction.category, style = MaterialTheme.typography.bodyLarge)
+                    if (transaction.note.isNotBlank()) {
+                        Text(
+                            transaction.note,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Color.Gray
+                        )
+                    }
                 }
+                Text(
+                    text = "${if (transaction.type == "income") "+" else "-"}${transaction.amount}₽",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = if (transaction.type == "income") Color(0xFF4CAF50) else Color(0xFFF44336)
+                )
             }
-            Text(
-                text = "${if (transaction.type == "income") "+" else "-"}${transaction.amount}₽",
-                style = MaterialTheme.typography.bodyLarge,
-                color = if (transaction.type == "income") Color(0xFF4CAF50) else Color(0xFFF44336)
-            )
+
+            // Кнопки редактирования и удаления
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Text(
+                    text = "Редактировать",
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier
+                        .padding(end = 16.dp)
+                        .clickable(onClick = onEdit)
+                )
+                Text(
+                    text = "Удалить",
+                    color = Color.Red,
+                    modifier = Modifier.clickable(onClick = onDelete)
+                )
+            }
         }
     }
 }

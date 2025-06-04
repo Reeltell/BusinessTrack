@@ -4,6 +4,6 @@ data class AddTransactionUiState(
     val category: String = "",
     val amount: String = "",
     val note: String = "",
-    val type: String = "expense",
+    val type: String = "",
     val isValid: Boolean = false
 )

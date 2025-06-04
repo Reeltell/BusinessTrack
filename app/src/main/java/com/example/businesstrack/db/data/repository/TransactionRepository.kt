@@ -33,10 +33,13 @@ class TransactionRepository @Inject constructor(
             .collection("transactions")
             .get()
             .addOnSuccessListener { result ->
-                val list = result.toObjects(Transaction::class.java)
+                val list = result.documents.map { doc ->
+                    doc.toObject(Transaction::class.java)!!.copy(id = doc.id)
+                }
                 onResult(list)
             }
     }
+
 
     fun deleteTransaction(id: String, onResult: (Boolean) -> Unit) {
         firestore.collection("users")
