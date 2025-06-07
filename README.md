@@ -10,7 +10,7 @@
 - Фильтрация и сортировка операций
 - Учет взаиморасчетов с контрагентами
 - Мониторинг торговых точек
-- ☁Синхронизация данных с Firebase Firestore
+- Синхронизация данных с Firebase Firestore
 
 ## Почему это полезно
 
@@ -32,7 +32,7 @@
 
 1. Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/ваш-логин/BusinessTrack.git
+    git clone https://github.com/Reeltell/BusinessTrack.git
     cd BusinessTrack
     ```
 2. Откройте проект в Android Studio.
@@ -62,5 +62,5 @@ BusinessTrack/
 
 - (https://github.com/Reeltell) — основной разработчик
 
-> Дополнительную документацию по структуре и архитектуре проекта можно найти в разделе [Wiki](https://github.com/ваш-логин/MoneyFlow_Manager_Mobile/wiki) или получить по запросу.
+# Дополнительную документацию по структуре и архитектуре проекта можно найти в разделе [Wiki](https://github.com/Reeltell/MoneyFlow_Manager_Mobile/wiki) или получить по запросу.
 
